@@ -16,12 +16,6 @@ module.exports = {
   },
   module: {
     rules: [
-      { test: /\.css$/,
-        use: [
-          { loader: "style-loader" },
-          { loader: "css-loader" }
-        ]
-      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -33,6 +27,15 @@ module.exports = {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: "babel-loader"
+      },
+      {
+        test: /\.(scss|css)$/i,
+        exclude: /node_modules/,
+        use:  [
+          {loader: "style-loader"},
+          {loader: "css-loader"},
+          {loader:  "sass-loader"}
+        ]
       }
     ]
   },
